@@ -46,7 +46,7 @@ class GPIOPin(object):
 
         if not os.path.exists(self.root):
             with _export_lock:
-                with open(GPIO_EXPORT, FMODE) as f:
+                with open(GPIO_EXPORT, 'w') as f:
                     f.write(str(self.pin))
                     f.flush()
 
@@ -168,7 +168,7 @@ class GPIOPin(object):
 
         if os.path.exists(self.root):
             with _export_lock:
-                with open(GPIO_UNEXPORT, FMODE) as f:
+                with open(GPIO_UNEXPORT, 'w') as f:
                     f.write(str(self.pin))
                     f.flush()
 
